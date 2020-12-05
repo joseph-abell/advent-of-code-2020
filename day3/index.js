@@ -3,7 +3,7 @@ const fs = require('fs');
 const rawData = fs.readFileSync('./input.txt', 'utf8');
 const rows = rawData.split('\n');
 
-const run = ([down, right]) => {
+const calcTreeCount = ([down, right]) => {
     let slope = 0;
     let trees = 0;
 
@@ -18,15 +18,8 @@ const run = ([down, right]) => {
     return trees;
 }
 
-const part1 = () => run([1, 3])
-const part2 = () => {
-    return [
-        [1, 1],
-        [1, 3],
-        [1, 5],
-        [1, 7],
-        [2, 1]
-    ].reduce((trees, increment) => trees * run(increment), 1);
-}
+const part1 = calcTreeCount([1, 3])
+const part2 = [[1, 1], [1, 3], [1, 5], [1, 7], [2, 1]]
+    .reduce((trees, increment) => trees * calcTreeCount(increment), 1);
 
-console.log(part1(), part2());
+console.log(part1, part2);
