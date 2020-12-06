@@ -19,4 +19,4 @@ const everyCount = groups.map(group => {
     return getLettersSharedByEveryone(people, letters).length;
 }).reduce(add, 0)
 
-console.log([anyCount, everyCount])
+console.log(anyCount, everyCount)
